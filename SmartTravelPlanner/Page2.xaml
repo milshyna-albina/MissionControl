@@ -1,0 +1,53 @@
+﻿<Page x:Class="SmartTravelPlanner.Page2"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Background="#E6E2F3">
+    <Grid Height="900">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="300"/>
+            <RowDefinition Height="120"/>
+            <RowDefinition Height="120"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Planned Route:" FontSize="60" VerticalAlignment="Center" HorizontalAlignment="Center"
+            Foreground="#7243A9" FontWeight="Bold" Margin="0,0,0,0"/>
+
+        <TextBlock Grid.Row="1" Text="total distance = 37372778" FontSize="35" VerticalAlignment="Center" HorizontalAlignment="Center"
+            Foreground="#7243A9" FontWeight="light" Margin="0,0,0,60"/>
+
+        <Button Grid.Row="3" Width="250" Height="70" HorizontalAlignment="Center"
+            Style="{StaticResource PurpleButtonStyle}" Margin="0,0,300,0">
+            <TextBlock Text="Save" VerticalAlignment="Center" FontSize="33" FontWeight="SemiBold" Foreground="White"/>
+        </Button>
+
+        <Button Grid.Row="3" Width="250" Height="70" HorizontalAlignment="Center"
+            Style="{StaticResource PurpleButtonStyle}" Margin="300,0,0,0">
+            <TextBlock Text="Clear route" VerticalAlignment="Center" FontSize="33" FontWeight="SemiBold" Foreground="White"/>
+        </Button>
+
+        <Button Grid.Row="4" Width="250" Height="80" HorizontalAlignment="Center"
+            Style="{StaticResource PurpleButtonStyle}">
+            <TextBlock Text="Load" VerticalAlignment="Center" FontSize="50" FontWeight="Bold" Foreground="White"/>
+        </Button>
+
+        <Button Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,55"
+            Style="{StaticResource SmallPurpleButtonStyle}" Click="ExitButton_Click">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <TextBlock Text="Exit " FontSize="30" Foreground="White"/>
+                <Image Source="/images/exit.png" Width="40" Height="40"/>
+            </StackPanel>
+        </Button>
+
+        <Button Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,0,55"
+            Style="{StaticResource SmallPurpleButtonStyle}" Click="ReturnButton_Click">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <TextBlock Text="Return" FontSize="30" Foreground="White"/>
+            </StackPanel>
+        </Button>
+
+
+    </Grid>
+</Page>
