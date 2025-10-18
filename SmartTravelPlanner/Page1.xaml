@@ -8,9 +8,10 @@
             <RowDefinition Height="100"/>
             <RowDefinition Height="120"/>
             <RowDefinition Height="120"/>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="120"/>
             <RowDefinition Height="*"/>
-            <RowDefinition/>
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="0" Text="WELCOME TO" FontSize="35" VerticalAlignment="Top" HorizontalAlignment="Center"
@@ -22,13 +23,11 @@
         <UserTextBox:InputTextBox x:Name="NameTextBox" Grid.Row="2" HorizontalAlignment="Center" Placeholder="Enter name" Margin="0,10,0,0"/>
         <UserTextBox:InputTextBox x:Name="LocationTextBox" Grid.Row="3" HorizontalAlignment="Center" Placeholder="Enter location"/>
 
-        <Button Grid.Row="4" Width="300" Height="80" HorizontalAlignment="Center"
-                Background="White" BorderThickness="0" Cursor="Hand" Margin="0,20,0,20">
+        <Button x:Name="LoadMapButton" Grid.Row="4" Width="300" Height="80" HorizontalAlignment="Center"
+                Background="White" BorderThickness="4" BorderBrush="#7D619B" Cursor="Hand" Click="LoadMapButton_Click">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
-                    <Border CornerRadius="15"
-                            BorderThickness="5"
-                            BorderBrush="#7D619B"
+                    <Border CornerRadius="15" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}"
                             Background="{TemplateBinding Background}">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
@@ -39,13 +38,16 @@
                 <TextBlock Text="Load Map" VerticalAlignment="Center" FontSize="35" Foreground="#604184" FontWeight="Bold"/>
             </StackPanel>
         </Button>
+        
+        <TextBlock x:Name="MapStatusText" Grid.Row="5" VerticalAlignment="Top" HorizontalAlignment="Center" 
+                   FontSize="16" Visibility="Collapsed"/>
 
-        <Button Grid.Row="5" Width="400" Height="100" HorizontalAlignment="Center"
-            Style="{StaticResource PurpleButtonStyle}" Click="ContinueButton_Click" Margin="0,30,0,0">
+        <Button Grid.Row="6" Width="400" Height="100" HorizontalAlignment="Center"
+            Style="{StaticResource PurpleButtonStyle}" Click="ContinueButton_Click">
             <TextBlock Text="Plan Route" VerticalAlignment="Center" FontSize="50" FontWeight="Bold" Foreground="White"/>
         </Button>
 
-        <Button Grid.Row="6" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20"
+        <Button Grid.Row="7" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20"
             Style="{StaticResource SmallPurpleButtonStyle}" Click="ExitButton_Click">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                 <TextBlock Text="Exit " FontSize="30" Foreground="White"/>
