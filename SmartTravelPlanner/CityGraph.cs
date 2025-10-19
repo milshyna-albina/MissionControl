@@ -122,5 +122,10 @@ namespace Travelling
 
             return totalDistance;
         }
+
+        public bool ContainsCity(string city)
+        {
+            return adjacencyList.ContainsKey(city);
+        }
     }
 }
