@@ -15,18 +15,37 @@ using System.Windows.Shapes;
 
 namespace Travelling
 {
-    /// <summary>
-    /// Interaction logic for Page2.xaml
-    /// </summary>
     public partial class Page2 : Page
     {
-        public Page2()
+        private Traveler traveler;
+        private CityGraph map;
+
+        public Page2(Traveler traveler, CityGraph map)
         {
             InitializeComponent();
+            this.traveler = traveler;
+            this.map = map;
+            DisplayRoute();
         }
+
+        private void DisplayRoute()
+        {
+            RouteTextBlock.Text = traveler.GetRoute();
+            RouteListBox.Items.Clear();
+            foreach (var city in traveler.GetRoute().Split(" -> "))
+            {
+                RouteListBox.Items.Add(city);
+            }
+            var citiesList = new List<string>(traveler.GetRoute().Split(" -> "));
+            int totalDistance = map.GetPathDistance(citiesList);
+            TotalDistanceTextBlock.Text = $"Total Distance: {totalDistance} km";
+ 
+        }
+
         private void ReturnButton_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService?.GoBack();
+            if (NavigationService != null && NavigationService.CanGoBack)
+                NavigationService.GoBack();
         }
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {

@@ -103,6 +103,7 @@ namespace Travelling
             if (map == null)
             {
                 ShowError(LoadMapButton, "Map file not found!");
+                return;
             }
 
             if (validLocation && !map.ContainsCity(LocationTextBox.Text))
@@ -126,7 +127,12 @@ namespace Travelling
             HideError(LocationTextBox);
             HideError(DestinationTextBox);
 
-            this.NavigationService.Navigate(new Page2());
+            Traveler traveler = new Traveler(NameTextBox.Text);
+            traveler.SetLocation(LocationTextBox.Text);
+            traveler.PlanRouteTo(DestinationTextBox.Text, map);
+            Page2 page2 = new Page2(traveler, map);
+            this.NavigationService.Navigate(page2);
+
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
