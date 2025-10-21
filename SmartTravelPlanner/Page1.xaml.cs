@@ -32,8 +32,7 @@ namespace Travelling
             switch (control)
             {
                 case InputTextBox box:
-                    box.tbError.Text = message;
-                    box.tbError.Visibility = Visibility.Visible;
+                    box.ShowTBError(message);
                     break;
 
                 case Button btn when btn == LoadMapButton:
@@ -53,7 +52,7 @@ namespace Travelling
             switch (control)
             {
                 case InputTextBox box:
-                    box.tbError.Visibility = Visibility.Collapsed;
+                    box.HideTBError();
                     break;
 
                 case Button btn when btn == LoadMapButton:
@@ -108,12 +107,12 @@ namespace Travelling
 
             if (validLocation && !map.ContainsCity(LocationTextBox.Text))
             {
-                ShowError(LocationTextBox, "Location not found on map!");
+                LocationTextBox.ShowTBError("Location not found on map!");
                 validLocation = false;
             }
             if (validDestination && !map.ContainsCity(DestinationTextBox.Text))
             {
-                ShowError(DestinationTextBox, "Destination not found on map!");
+                DestinationTextBox.ShowTBError("Destination not found on map!");
                 validDestination = false;
             }
 
@@ -138,8 +137,8 @@ namespace Travelling
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show(
-                "Вы Альбина Малышина?",
-                "придется признать...",
+                ".",
+                ".",
                 MessageBoxButton.YesNo,
                 MessageBoxImage.Question);
 

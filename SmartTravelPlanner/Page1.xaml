@@ -4,28 +4,28 @@
       xmlns:UserTextBox="clr-namespace:Travelling">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="120"/>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="100"/>
             <RowDefinition Height="90"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="120"/>
+            <RowDefinition Height="120"/>
+            <RowDefinition Height="120"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="120"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Text="WELCOME TO" FontSize="35" VerticalAlignment="Top" HorizontalAlignment="Center"
-                   Foreground="#7243A9" FontWeight="Bold" Margin="0,60,0,0"/>
+        <TextBlock Grid.Row="0" Text="WELCOME TO" FontSize="35" VerticalAlignment="Bottom" HorizontalAlignment="Center"
+                   Foreground="#7243A9" FontWeight="Bold" />
 
         <TextBlock Grid.Row="1" Text="Traveler's Adventure" FontSize="60" VerticalAlignment="Center" HorizontalAlignment="Center"
                    Foreground="#7243A9" FontWeight="Bold"  Margin="0,0,0,20"/>
 
-        <UserTextBox:InputTextBox x:Name="NameTextBox" Grid.Row="2" HorizontalAlignment="Center" Placeholder="Enter name" />
-        <UserTextBox:InputTextBox x:Name="LocationTextBox" Grid.Row="3" HorizontalAlignment="Center" Placeholder="Enter location"/>
-        <UserTextBox:InputTextBox x:Name="DestinationTextBox" Grid.Row="4" HorizontalAlignment="Center" Placeholder="Enter destination"/>
+        <UserTextBox:InputTextBox x:Name="NameTextBox" Grid.Row="2" HorizontalAlignment="Center" Header="name" Placeholder="Enter your name" />
+        <UserTextBox:InputTextBox x:Name="LocationTextBox" Grid.Row="3" HorizontalAlignment="Center" Header="location" Placeholder="Enter location (where from)"/>
+        <UserTextBox:InputTextBox x:Name="DestinationTextBox" Grid.Row="4" HorizontalAlignment="Center" Header="destination" Placeholder="Enter destination (where to)"/>
 
-        <Button x:Name="LoadMapButton" Grid.Row="5" Width="300" Height="80" HorizontalAlignment="Center"
+        <Button x:Name="LoadMapButton" Grid.Row="5" Width="300" Height="80" HorizontalAlignment="Center" VerticalAlignment="Bottom"
                 Background="White" BorderThickness="4" BorderBrush="#7D619B" Cursor="Hand" Click="LoadMapButton_Click">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
@@ -40,7 +40,7 @@
                 <TextBlock Text="Load Map" VerticalAlignment="Center" FontSize="35" Foreground="#604184" FontWeight="Bold"/>
             </StackPanel>
         </Button>
-        
+
         <TextBlock x:Name="MapStatusText" Grid.Row="6" VerticalAlignment="Top" HorizontalAlignment="Center" 
                    FontSize="16" Visibility="Collapsed"/>
 

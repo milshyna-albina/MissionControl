@@ -38,7 +38,7 @@ namespace Travelling
             }
             var citiesList = new List<string>(traveler.GetRoute().Split(" -> "));
             int totalDistance = map.GetPathDistance(citiesList);
-            TotalDistanceTextBlock.Text = $"Total Distance: {totalDistance} km";
+            TotalDistanceTextBlock.Text = $"Total distance: {totalDistance} km";
  
         }
 

@@ -23,6 +23,7 @@ namespace Travelling
         }
 
         private string placeholder;
+        private string header;
 
         public string Placeholder
         {
@@ -32,6 +33,43 @@ namespace Travelling
                 placeholder = value;
                 tbPlaceholder.Text = placeholder;
             }
+        }
+
+        public string Header
+        {
+            get { return header; }
+            set
+            {
+                header = value;
+                tbName.Text = header;
+            }
+        }
+
+        public void ShowTBError(string message)
+        {
+            tbError.Text = message;
+            tbError.Visibility = Visibility.Visible;
+            borderInput.BorderBrush = Brushes.Red;
+            borderInput.BorderThickness = new Thickness(3);
+        }
+
+        public void HideTBError()
+        {
+            tbError.Visibility = Visibility.Collapsed;
+            borderInput.BorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#7D619B"));
+            borderInput.BorderThickness = new Thickness(3);
+        }
+
+        public bool Validate()
+        {
+            if (string.IsNullOrWhiteSpace(txtInput.Text))
+            {
+                ShowTBError("This field cannot be empty!");
+                return false;
+            }
+
+            HideTBError();
+            return true;
         }
 
         private void btnClear_Click(object sender, RoutedEventArgs e)
@@ -46,29 +84,10 @@ namespace Travelling
 
             if (!string.IsNullOrWhiteSpace(txtInput.Text))
             {
-                tbError.Visibility = Visibility.Collapsed;
-                borderInput.BorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#7D619B"));
+                HideTBError();
             }
         }
 
-        public bool Validate()
-        {
-            if (string.IsNullOrWhiteSpace(txtInput.Text))
-            {
-                tbError.Visibility = Visibility.Visible;
-                borderInput.BorderBrush = Brushes.Red;
-                borderInput.BorderThickness = new Thickness(3);
-                return false;
-            }
-            else
-            {
-                tbError.Visibility = Visibility.Collapsed;
-                borderInput.BorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#7D619B"));
-                borderInput.BorderThickness = new Thickness(3);
-
-                return true;
-            }
-        }
         public string Text => txtInput.Text;
     }
 }

@@ -4,23 +4,37 @@
       Background="#E6E2F3">
     <Grid Height="900">
         <Grid.RowDefinitions>
-            <RowDefinition Height="170"/>
+            <RowDefinition Height="150"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="120"/>
+            <RowDefinition Height="120"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="120"/>
-            <RowDefinition Height="120"/>
-            <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Text="Planned Route:" FontSize="60" VerticalAlignment="Center" HorizontalAlignment="Center"
+        <TextBlock Grid.Row="0" Text="Planned Route" FontSize="60" VerticalAlignment="Center" HorizontalAlignment="Center"
             Foreground="#7243A9" FontWeight="Bold"/>
-        <TextBlock Grid.Row="1" x:Name="RouteTextBlock" FontSize="35" HorizontalAlignment="Center"/>
-        <TextBlock Grid.Row="2" Text="All Cities:" FontWeight="Bold" FontSize="25" Margin="30,0,0,0"/>
-        <ListBox Grid.Row="3" x:Name="RouteListBox" Margin="50,0,50,0" FontSize="15"/>
-        <TextBlock Grid.Row="4" x:Name="TotalDistanceTextBlock" FontWeight="Bold" FontSize="25" Margin="30,0,0,0"/>
-
+        <TextBlock Grid.Row="1" x:Name="RouteTextBlock" FontSize="35" HorizontalAlignment="Center" Foreground="#7243A9"/>
+        <TextBlock Grid.Row="2" x:Name="TotalDistanceTextBlock" FontWeight="Bold" FontSize="25" Margin="30,0,0,0" Foreground="#7243A9"/>
+        <TextBlock Grid.Row="3" Text="All cities:" FontWeight="Bold" FontSize="25" Margin="30,0,0,0" Foreground="#7243A9"/>
+        <ListBox Grid.Row="4" x:Name="RouteListBox" Margin="250,0,250,0" FontSize="30"
+         Background="White" BorderBrush="#7D619B" BorderThickness="2"
+         HorizontalContentAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Margin" Value="10"/>
+                    <Setter Property="Padding" Value="10"/>
+                    <Setter Property="Background" Value="#7243A9"/>
+                    <Setter Property="BorderBrush" Value="#7D619B"/>
+                    <Setter Property="BorderThickness" Value="2"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
 
         <Grid Grid.Row="5">
             <Grid.ColumnDefinitions>
