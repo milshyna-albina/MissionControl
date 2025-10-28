@@ -66,18 +66,24 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0" HorizontalAlignment="Center" Width="300" Height="70" Style="{StaticResource PurpleButtonStyle}" Margin="0,0,0,20">
+            <Button Grid.Column="0" HorizontalAlignment="Center" Width="300" Height="70" 
+                    Style="{StaticResource PurpleButtonStyle}" Margin="0,0,0,20" Click="SaveButton_Click">
                 <TextBlock Text="Save" VerticalAlignment="Center" FontSize="33" FontWeight="SemiBold" Foreground="White"/>
             </Button>
+            <TextBlock x:Name="SaveStatusTextBlock" FontSize="20" HorizontalAlignment="Center" 
+                       Visibility="Collapsed" Margin="0,90,0,0"/>
             <Button Grid.Column="1" HorizontalAlignment="Center" Width="300" Height="70" Style="{StaticResource PurpleButtonStyle}" Margin="0,0,0,20" Cursor="Hand">
                 <TextBlock Text="Clear route" VerticalAlignment="Center" FontSize="33" FontWeight="SemiBold" Foreground="White"/>
             </Button>
         </Grid>
 
         <Button Grid.Row="6" Width="250" Height="80" HorizontalAlignment="Center" Margin="0,0,0,20"
-            Style="{StaticResource PurpleButtonStyle}">
+            Style="{StaticResource PurpleButtonStyle}" Click="LoadMapButton_Click" Cursor="Hand">
             <TextBlock Text="Load" VerticalAlignment="Center" FontSize="50" FontWeight="Bold" Foreground="White"/>
         </Button>
+        <TextBlock x:Name="LoadStatusTextBlock" FontSize="20" Grid.Row="6" Margin="0,90,0,0" Foreground="Green" 
+                    TextWrapping="Wrap" TextAlignment="Center"/>
+
 
         <Grid Grid.Row="7">
             <Grid.ColumnDefinitions>
