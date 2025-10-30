@@ -56,14 +56,11 @@ namespace Travelling
 
         public void AddCity(string city)
         {
-            if (city != null && city != "")
-            {
-                route.Add(CityName(city));
-            }
-            else
+            if (string.IsNullOrWhiteSpace(city))
             {
                 throw new ArgumentException("Invalid city!");
             }
+            route.Add(CityName(city));
         }
 
         public string GetRoute()

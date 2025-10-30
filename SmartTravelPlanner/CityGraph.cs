@@ -8,9 +8,7 @@ namespace Travelling
         private Dictionary<string, List<(string ConnectedTo, int Distance)>> adjacencyList = new();
         private List<string> ordered = new();
 
-        private CityGraph()
-        {
-        }
+        private CityGraph() { }
 
         public static CityGraph LoadFromFile(string filePath)
         {
@@ -51,9 +49,6 @@ namespace Travelling
 
         public List<string>? FindShortestPath(string from, string to)
         {
-            if (!adjacencyList.ContainsKey(from) || !adjacencyList.ContainsKey(to))
-                return null;
-
             var distances = adjacencyList.Keys.ToDictionary(city => city, city => int.MaxValue);
             var previous = adjacencyList.Keys.ToDictionary(city => city, city => (string?)null);
             distances[from] = 0;
@@ -125,7 +120,9 @@ namespace Travelling
 
         public bool ContainsCity(string city)
         {
-            return adjacencyList.ContainsKey(city);
+            if (string.IsNullOrWhiteSpace(city))
+                return false;
+            return adjacencyList.Keys.Any(c => string.Equals(c, city, StringComparison.OrdinalIgnoreCase));
         }
     }
 }

@@ -85,7 +85,7 @@ namespace Travelling
                     Traveler traveler = Traveler.LoadFromFile(path);
 
       
-                    LoadStatusTextBlock.Text = $"Traveler '{traveler.GetName()}' Loaded successfully!";
+                    LoadStatusTextBlock.Text = $"Traveler '{traveler.GetName()}' loaded successfully!";
 
                     string route = traveler.GetRoute();
                     RouteTextBlock.Text = $"Current Location: {traveler.GetLocation()}\nRoute: {route}";
