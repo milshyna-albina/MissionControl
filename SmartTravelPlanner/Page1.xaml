@@ -4,7 +4,7 @@
       xmlns:UserTextBox="clr-namespace:Travelling">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="90"/>
+            <RowDefinition Height="60"/>
             <RowDefinition Height="80"/>
             <RowDefinition Height="120"/>
             <RowDefinition Height="120"/>
@@ -15,13 +15,10 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Text="WELCOME TO" FontSize="35" VerticalAlignment="Bottom" HorizontalAlignment="Center"
-                   Foreground="#7243A9" FontWeight="Bold" />
+        <TextBlock Grid.Row="1" Text="Enter traveler's data:" FontSize="40" VerticalAlignment="Top" HorizontalAlignment="Center"
+                   Foreground="#7243A9" FontWeight="Bold"/>
 
-        <TextBlock Grid.Row="1" Text="Traveler's Adventure" FontSize="60" VerticalAlignment="Center" HorizontalAlignment="Center"
-                   Foreground="#7243A9" FontWeight="Bold"  Margin="0,0,0,20"/>
-
-        <UserTextBox:InputTextBox x:Name="NameTextBox" Grid.Row="2" HorizontalAlignment="Center" Header="name" Placeholder="Enter your name" />
+        <UserTextBox:InputTextBox x:Name="NameTextBox" Grid.Row="2" HorizontalAlignment="Center" Header="name" Placeholder="Enter traveler's name" />
         <UserTextBox:InputTextBox x:Name="LocationTextBox" Grid.Row="3" HorizontalAlignment="Center" Header="location" Placeholder="Enter location (where from)"/>
         <UserTextBox:InputTextBox x:Name="DestinationTextBox" Grid.Row="4" HorizontalAlignment="Center" Header="destination" Placeholder="Enter destination (where to)"/>
 
@@ -49,13 +46,26 @@
             <TextBlock Text="Plan Route" VerticalAlignment="Center" FontSize="50" FontWeight="Bold" Foreground="White"/>
         </Button>
 
-        <Button Grid.Row="8" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20"
+        <Grid Grid.Row="8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,0,20" 
+            Style="{StaticResource SmallPurpleButtonStyle}" Click="ReturnButton_Click">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock Text="Return" FontSize="30" Foreground="White"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20"
             Style="{StaticResource SmallPurpleButtonStyle}" Click="ExitButton_Click">
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                <TextBlock Text="Exit " FontSize="30" Foreground="White"/>
-                <Image Source="/images/exit.png" Width="40" Height="40"/>
-            </StackPanel>
-        </Button>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock Text="Exit " FontSize="30" Foreground="White"/>
+                    <Image Source="/images/exit.png" Width="40" Height="40"/>
+                </StackPanel>
+            </Button>
+        </Grid>
 
     </Grid>
 </Page>

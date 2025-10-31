@@ -129,9 +129,15 @@ namespace Travelling
             Traveler traveler = new Traveler(NameTextBox.Text);
             traveler.SetLocation(LocationTextBox.Text);
             traveler.PlanRouteTo(DestinationTextBox.Text, map);
-            Page2 page2 = new Page2(traveler, map);
-            this.NavigationService.Navigate(page2);
+            Page3 page3 = new Page3(traveler, map);
+            this.NavigationService.Navigate(page3);
 
+        }
+
+        private void ReturnButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (NavigationService != null && NavigationService.CanGoBack)
+                NavigationService.GoBack();
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)

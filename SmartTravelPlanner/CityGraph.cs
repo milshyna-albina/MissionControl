@@ -49,6 +49,8 @@ namespace Travelling
 
         public List<string>? FindShortestPath(string from, string to)
         {
+            from = adjacencyList.Keys.First(c => string.Equals(c, from, StringComparison.OrdinalIgnoreCase));
+            to = adjacencyList.Keys.First(c => string.Equals(c, to, StringComparison.OrdinalIgnoreCase));
             var distances = adjacencyList.Keys.ToDictionary(city => city, city => int.MaxValue);
             var previous = adjacencyList.Keys.ToDictionary(city => city, city => (string?)null);
             distances[from] = 0;

@@ -7,6 +7,6 @@
                   Title="Traveler's Adventure"
                   Height="900" Width="1600">
     <NavigationWindow.Content>
-        <local:Page1 />
+        <local:Page0 />
     </NavigationWindow.Content>
 </NavigationWindow>

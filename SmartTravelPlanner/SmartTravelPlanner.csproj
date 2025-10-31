@@ -12,12 +12,14 @@
     <None Remove="images\delete.PNG" />
     <None Remove="images\exit.png" />
     <None Remove="images\load_map.png" />
+    <None Remove="images\page0.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="images\delete.PNG" />
     <Resource Include="images\exit.png" />
     <Resource Include="images\load_map.png" />
+    <Resource Include="images\page0.png" />
   </ItemGroup>
 
 </Project>
