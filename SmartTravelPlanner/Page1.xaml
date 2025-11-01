@@ -22,20 +22,8 @@
         <UserTextBox:InputTextBox x:Name="LocationTextBox" Grid.Row="3" HorizontalAlignment="Center" Header="location" Placeholder="Enter location (where from)"/>
         <UserTextBox:InputTextBox x:Name="DestinationTextBox" Grid.Row="4" HorizontalAlignment="Center" Header="destination" Placeholder="Enter destination (where to)"/>
 
-        <Button x:Name="LoadMapButton" Grid.Row="5" Width="300" Height="80" HorizontalAlignment="Center" VerticalAlignment="Bottom"
-                Background="White" BorderThickness="4" BorderBrush="#7D619B" Cursor="Hand" Click="LoadMapButton_Click">
-            <Button.Template>
-                <ControlTemplate TargetType="Button">
-                    <Border CornerRadius="15" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}"
-                            Background="{TemplateBinding Background}">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    </Border>
-                </ControlTemplate>
-            </Button.Template>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Image Source="/images/load_map.png" Width="50" Height="50" Margin="0,0,8,0"/>
-                <TextBlock Text="Load Map" VerticalAlignment="Center" FontSize="35" Foreground="#604184" FontWeight="Bold"/>
-            </StackPanel>
+        <Button Grid.Row="5" x:Name="LoadMapButton" Width="300" Height="80" Style="{StaticResource WhiteButtonStyle}" Tag="/images/load_map.png" Click="LoadMapButton_Click">
+            <TextBlock Text="Load Map" FontSize="35" FontWeight="Bold" Foreground="#604184"/>
         </Button>
 
         <TextBlock x:Name="MapStatusText" Grid.Row="6" VerticalAlignment="Top" HorizontalAlignment="Center" 

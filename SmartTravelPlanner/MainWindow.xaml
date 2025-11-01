@@ -3,9 +3,12 @@
                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                   xmlns:local="clr-namespace:Travelling"
                   ShowsNavigationUI="False"
-                  Background="#E6E2F3"
                   Title="Traveler's Adventure"
                   Height="900" Width="1600">
+    <NavigationWindow.Background>
+        <ImageBrush ImageSource="/images/background.png" Stretch="UniformToFill"/>
+    </NavigationWindow.Background>
+
     <NavigationWindow.Content>
         <local:Page0 />
     </NavigationWindow.Content>

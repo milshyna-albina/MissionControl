@@ -20,28 +20,26 @@
         <TextBlock Grid.Row="1" Text="Traveler's Adventure" FontSize="60" VerticalAlignment="Center" HorizontalAlignment="Center"
            Foreground="#7243A9" FontWeight="Bold"  Margin="0,0,0,20"/>
 
-        <TextBlock Grid.Row="2" Text="Please choose one option to create a new traveler:" FontSize="35" HorizontalAlignment="Center" VerticalAlignment="Center"
-            Foreground="#7243A9" />
-        
+        <TextBlock Grid.Row="2" FontSize="35" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#7243A9">
+        Please choose <Run Text="one" FontWeight="Bold"/> option to create a new traveler:
+        </TextBlock>
+
         <Grid Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="400"/>
+                <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="100"/>
-                <ColumnDefinition Width="400"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0" Height="80" Click="ManualEntryButton_Click"  Style="{StaticResource PurpleButtonStyle}">
-                <TextBlock Text="Enter data manually" FontSize="30" FontWeight="Bold" Foreground="White" TextAlignment="Center"/>
-            </Button>
-
-            <Button Grid.Column="2" Height="80" Click="LoadFromFileButton_Click" Style="{StaticResource PurpleButtonStyle}">
-                <TextBlock Text="Load data from .json file" FontSize="30" FontWeight="Bold" Foreground="White" TextAlignment="Center"/>
-            </Button>
+            <Button Grid.Column="0" Height="80" Click="ManualEntryButton_Click" Style="{StaticResource WhiteButtonStyle}" 
+                Tag="/images/load_map.png" Content="Enter data manually" FontSize="30" FontWeight="Bold" VerticalAlignment="Center" Width="500"/>
+            <Button Grid.Column="2" Height="80" Click="LoadFromFileButton_Click" Style="{StaticResource WhiteButtonStyle}" 
+                Tag="/images/load_map.png" Content="Load data from .json file" FontSize="30" FontWeight="Bold" VerticalAlignment="Center" Width="500"/>
         </Grid>
 
         <Image Grid.Row="4" Source="/images/page0.png" HorizontalAlignment="Center" Margin="0,20,0,0" Stretch="Uniform"/>
 
-        <Button Grid.Row="8" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20"
+        <Button Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20"
             Style="{StaticResource SmallPurpleButtonStyle}" Click="ExitButton_Click">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                 <TextBlock Text="Exit " FontSize="30" Foreground="White"/>
