@@ -38,7 +38,7 @@
 
     <Style x:Key="WhiteButtonStyle" TargetType="Button">
         <Setter Property="HorizontalAlignment" Value="Center"/>
-        <Setter Property="VerticalAlignment" Value="Bottom"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Background" Value="White"/>
         <Setter Property="BorderBrush" Value="#7D619B"/>

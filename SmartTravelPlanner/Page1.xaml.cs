@@ -27,7 +27,7 @@ namespace Travelling
             defaultBorder = LoadMapButton.BorderBrush;
         }
 
-        private void ShowError(Control control, string message)
+        public void ShowError(Control control, string message)
         {
             switch (control)
             {
@@ -47,7 +47,7 @@ namespace Travelling
             }
         }
 
-        private void HideError(Control control)
+        public void HideError(Control control)
         {
             switch (control)
             {

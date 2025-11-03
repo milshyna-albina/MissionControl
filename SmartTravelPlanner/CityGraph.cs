@@ -126,5 +126,47 @@ namespace Travelling
                 return false;
             return adjacencyList.Keys.Any(c => string.Equals(c, city, StringComparison.OrdinalIgnoreCase));
         }
+
+        public List<string>? FindShortestPathAvoidCity(string from, string to, string avoidCity)
+        {
+            from = adjacencyList.Keys.First(c => string.Equals(c, from, StringComparison.OrdinalIgnoreCase));
+            to = adjacencyList.Keys.First(c => string.Equals(c, to, StringComparison.OrdinalIgnoreCase));
+            var distances = adjacencyList.Keys.ToDictionary(city => city, city => int.MaxValue);
+            var previous = adjacencyList.Keys.ToDictionary(city => city, city => (string?)null);
+            distances[from] = 0;
+            var queue = new PriorityQueue<string, int>();
+            queue.Enqueue(from, 0);
+
+            while (queue.Count > 0)
+            {
+                string current = queue.Dequeue();
+                if (current == to)
+                    break;
+                int currentDistance = distances[current];
+                foreach (var edge in adjacencyList[current])
+                {
+                    if (string.Equals(edge.ConnectedTo, avoidCity, StringComparison.OrdinalIgnoreCase))
+                        continue;
+
+                    int newDistance = currentDistance + edge.Distance;
+                    if (newDistance < distances[edge.ConnectedTo])
+                    {
+                        distances[edge.ConnectedTo] = newDistance;
+                        previous[edge.ConnectedTo] = current;
+                        queue.Enqueue(edge.ConnectedTo, newDistance);
+                    }
+                }
+            }
+
+            var path = new List<string>();
+            string? step = to;
+            while (step != null)
+            {
+                path.Add(step);
+                step = previous[step];
+            }
+            path.Reverse();
+            return path.Count > 0 && path[0] == from ? path : null;
+        }
     }
 }

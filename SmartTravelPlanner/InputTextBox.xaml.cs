@@ -88,6 +88,10 @@ namespace Travelling
             }
         }
 
-        public string Text => txtInput.Text;
+        public string Text
+        {
+            get => txtInput.Text;
+            set => txtInput.Text = value;
+        }
     }
 }
