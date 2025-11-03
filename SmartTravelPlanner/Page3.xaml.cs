@@ -34,14 +34,37 @@ namespace Travelling
         {
             RouteTextBlock.Text = traveler.GetRoute();
             RouteListBox.Items.Clear();
-            foreach (var city in traveler.GetRoute().Split(" -> "))
-            {
-                RouteListBox.Items.Add(city);
-            }
-            var citiesList = new List<string>(traveler.GetRoute().Split(" -> "));
+            var route = traveler.GetRoute();
+            var citiesList = new List<string>(route.Split(" -> ", StringSplitOptions.RemoveEmptyEntries));
             int totalDistance = map.GetPathDistance(citiesList);
-            TotalDistanceTextBlock.Text = $"Total distance: {totalDistance} km";
- 
+
+            if (totalDistance <= 0 || string.IsNullOrWhiteSpace(route))
+            {
+                NoRoutePanel.Visibility = Visibility.Visible;
+                RouteBorder.Visibility = Visibility.Collapsed;
+                RouteListBox.Visibility = Visibility.Collapsed;
+                TotalDistanceTextBlock.Visibility = Visibility.Collapsed;
+                AllCitiesTextBlock.Visibility = Visibility.Collapsed;
+                SaveButton.Visibility = Visibility.Collapsed;
+                ClearRouteButton.Visibility = Visibility.Collapsed;
+                RouteTextBlock.Text = string.Empty;
+                TotalDistanceTextBlock.Text = string.Empty;
+            }
+            else
+            {
+                NoRoutePanel.Visibility = Visibility.Collapsed;
+                RouteBorder.Visibility = Visibility.Visible;
+                RouteListBox.Visibility = Visibility.Visible;
+                TotalDistanceTextBlock.Visibility = Visibility.Visible;
+                AllCitiesTextBlock.Visibility = Visibility.Visible;
+                SaveButton.Visibility = Visibility.Visible;
+                ClearRouteButton.Visibility = Visibility.Visible;
+                foreach (var city in citiesList)
+                {
+                    RouteListBox.Items.Add(city);
+                }
+                TotalDistanceTextBlock.Text = $"Total distance: {totalDistance} km";
+            }
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
@@ -69,42 +92,6 @@ namespace Travelling
                 }
             }
         }
-
-        private void LoadMapButton_Click(object sender, RoutedEventArgs e)
-        {
-            OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Filter = "JSON files (*.json)|*.json";
-            dialog.Title = "Select Traveler JSON file";
-
-            if (dialog.ShowDialog() == true)
-            {
-                string path = dialog.FileName;
-
-                try
-                {
-                    Traveler traveler = Traveler.LoadFromFile(path);
-
-      
-                    LoadStatusTextBlock.Text = $"Traveler '{traveler.GetName()}' loaded successfully!";
-
-                    string route = traveler.GetRoute();
-                    RouteTextBlock.Text = $"Current Location: {traveler.GetLocation()}\nRoute: {route}";
-                }
-                catch (FileNotFoundException ex)
-                {
-                    LoadStatusTextBlock.Text = $"Error: {ex.Message}";
-                }
-                catch (FileLoadException ex)
-                {
-                    LoadStatusTextBlock.Text = $"Error: {ex.Message}";
-                }
-                catch (Exception ex)
-                {
-                    LoadStatusTextBlock.Text = $"Unexpected error: {ex.Message}";
-                }
-            }
-        }
-
 
         private void ReturnButton_Click(object sender, RoutedEventArgs e)
         {
