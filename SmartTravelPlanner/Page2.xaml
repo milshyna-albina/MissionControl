@@ -7,9 +7,9 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="130"/>
-            <RowDefinition Height="440"/>
-            <RowDefinition Height="165"/>
-            <RowDefinition Height="190"/>
+            <RowDefinition Height="340"/>
+            <RowDefinition Height="145"/>
+            <RowDefinition Height="170"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
