@@ -83,13 +83,13 @@
             <UserTextBox:InputTextBox x:Name="CityTextBox" Grid.Column="1" HorizontalAlignment="Center" Header="city" Placeholder="Enter city" />
 
             <Button Grid.Column="2" x:Name="AddCityButton" Width="250" Height="60" Style="{StaticResource WhiteButtonStyle}" 
-            Margin="0,10,0,0" Click="AddCityButton_Click" Tag="/images/Plus.png">
+            Margin="0,10,0,0" Click="AddCityButton_Click" Tag="/images/add_city.png">
                 <TextBlock Text="Add city" FontSize="25" Foreground="#7D619B" 
        FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </Button>
 
             <Button Grid.Column="3" x:Name="RemoveCityButton" Width="250" Height="60" Margin="0,10,0,0"
-            Style="{StaticResource WhiteButtonStyle}" Click="RemoveCityButton_Click" Tag="/images/Minus.png">
+            Style="{StaticResource WhiteButtonStyle}" Click="RemoveCityButton_Click" Tag="/images/remove_city.png">
                 <TextBlock Text="Remove city" FontSize="25" Foreground="#7D619B" FontWeight="SemiBold" HorizontalAlignment="Center"/>
             </Button>
               </Grid>

@@ -119,7 +119,7 @@
             </Grid.RowDefinitions>
 
             <TextBlock Grid.Row="0" Text="No route found!" FontSize="60" Foreground="#7243A9" HorizontalAlignment="Center" />
-            <Image Grid.Row="1" Source="/images/page2.png" Width="500" Height="500" HorizontalAlignment="Center"/>
+            <Image Grid.Row="1" Source="/images/no_route.png" Width="500" Height="500" HorizontalAlignment="Center"/>
         </Grid>
 
     </Grid>

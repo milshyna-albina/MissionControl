@@ -12,10 +12,7 @@
     <None Remove="images\delete.PNG" />
     <None Remove="images\exit.png" />
     <None Remove="images\load_map.png" />
-    <None Remove="images\Minus.png" />
     <None Remove="images\page0.png" />
-    <None Remove="images\page2.png" />
-    <None Remove="images\Plus.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,12 +20,12 @@
     <Resource Include="images\delete.PNG" />
     <Resource Include="images\exit.png" />
     <Resource Include="images\load_map.png" />
-    <Resource Include="images\Minus.png" />
+    <Resource Include="images\remove_city.png" />
     <Resource Include="images\page0.png" />
-    <Resource Include="images\page2.png">
+    <Resource Include="images\no_route.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="images\Plus.png" />
+    <Resource Include="images\add_city.png" />
   </ItemGroup>
 
 </Project>
