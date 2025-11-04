@@ -89,6 +89,25 @@ namespace Travelling
             }
         }
 
+        private void ClearButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (traveler == null)
+            {
+                ClearStatusTextBlock.Text = "Nothing to be cleared!";
+                ClearStatusTextBlock.Foreground = Brushes.Red;
+                ClearStatusTextBlock.Visibility = Visibility.Visible;
+                return;
+            }
+
+            traveler.ClearRoute();
+            RouteTextBlock.Text = "";
+            RouteListBox.Items.Clear();
+
+            ClearStatusTextBlock.Text = "Route cleared!";
+            ClearStatusTextBlock.Foreground = Brushes.Green;
+            ClearStatusTextBlock.Visibility = Visibility.Visible;
+        }
+
         private void ContinueButton_Click(object sender, RoutedEventArgs e)
         {
             Traveler experimentalTraveler = (Traveler)traveler.Clone();
