@@ -50,6 +50,13 @@ namespace Travelling
                     btn.BorderBrush = Brushes.Red;
                     break;
 
+                case Button btn when btn == PlanRouteButton:
+                    PlanRouteStatusText.Text = message;
+                    PlanRouteStatusText.Foreground = Brushes.Red;
+                    PlanRouteStatusText.Visibility = Visibility.Visible;
+                    btn.BorderBrush = Brushes.Red;
+                    break;
+
                 default:
                     break;
             }
@@ -72,6 +79,11 @@ namespace Travelling
                     TravelerStatusText.Visibility = Visibility.Collapsed;
                     btn.BorderBrush = defaultBorder;
                     break;
+
+                case Button btn when btn == PlanRouteButton:
+                    PlanRouteStatusText.Visibility = Visibility.Collapsed;
+                    btn.BorderBrush = defaultBorder;
+                    break;
             }
         }
 
@@ -91,7 +103,7 @@ namespace Travelling
 
                     HideError(LoadDataButton);
 
-                    TravelerStatusText.Text = $"Traveler loaded: {traveler.GetName()}";
+                    TravelerStatusText.Text = $"Traveler {traveler.GetName()} loaded!";
                     TravelerStatusText.Foreground = Brushes.Purple;
                     TravelerStatusText.Visibility = Visibility.Visible;
                 }
@@ -159,8 +171,21 @@ namespace Travelling
             if (hasError)
                 return;
 
+            string route = traveler.GetRoute();
+            string[] cities = route.Split(" -> ", StringSplitOptions.RemoveEmptyEntries);
+
+            foreach (string city in cities)
+            {
+                if (!map.ContainsCity(city))
+                {
+                    ShowError(PlanRouteButton, $"There is no \"{city}\" in the map!");
+                    return;
+                }
+            }
+            
             HideError(LoadDataButton);
             HideError(LoadMapButton);
+            PlanRouteButton.BorderBrush = defaultBorder;
 
             Page3 page3 = new Page3(traveler, map);
             this.NavigationService.Navigate(page3);

@@ -94,7 +94,7 @@
             </Button>
               </Grid>
 
-            <Grid Grid.Row="6">
+        <Grid Grid.Row="6">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width ="100" />
@@ -102,14 +102,17 @@
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0" x:Name="SaveButton" HorizontalAlignment="Right" Width="350" Height="70" 
             Style="{StaticResource PurpleButtonStyle}" Margin="0,0,0,20" Click="SaveButton_Click">
-            <TextBlock Text="Save" VerticalAlignment="Center" FontSize="33" FontWeight="SemiBold" Foreground="White"/>
-        </Button>
-        <TextBlock x:Name="SaveStatusTextBlock" FontSize="20" HorizontalAlignment="Center" 
-               Visibility="Collapsed" Margin="0,90,0,0"/>
-        <Button Grid.Column="2" x:Name="ClearRouteButton" HorizontalAlignment="Left" Width="350" Height="70" Style="{StaticResource PurpleButtonStyle}" Margin="0,0,0,20" Cursor="Hand">
-            <TextBlock Text="Clear route" VerticalAlignment="Center" FontSize="33" FontWeight="SemiBold" Foreground="White"/>
-        </Button>
-    </Grid>
+                <TextBlock Text="Save" VerticalAlignment="Center" FontSize="33" FontWeight="SemiBold" Foreground="White"/>
+            </Button>
+            <TextBlock x:Name="SaveStatusTextBlock"  Grid.Column="0" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                 Margin="0,0,55,0"/>
+            <Button Grid.Column="2" x:Name="ClearRouteButton" HorizontalAlignment="Left" Width="350" Height="70" Style="{StaticResource PurpleButtonStyle}" 
+                Margin="0,0,0,20" Cursor="Hand" Click="ClearButton_Click">
+                <TextBlock Text="Clear route" VerticalAlignment="Center" FontSize="33" FontWeight="SemiBold" Foreground="White"/>
+            </Button>
+            <TextBlock x:Name="ClearStatusTextBlock" Grid.Column="2" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                Margin="120,0,0,0"/>
+        </Grid>
 
         <Grid Grid.Row="7">
             <Grid.ColumnDefinitions>
@@ -140,7 +143,7 @@
             </Grid.RowDefinitions>
 
             <TextBlock Grid.Row="0" Text="No route found!" FontSize="60" Foreground="#7243A9" HorizontalAlignment="Center" />
-            <Image Grid.Row="1" Source="/images/page2.png" Width="500" Height="500" HorizontalAlignment="Center"/>
+            <Image Grid.Row="1" Source="/images/no_route.png" Width="500" Height="500" HorizontalAlignment="Center"/>
         </Grid>
     </Grid>
 </Page>
