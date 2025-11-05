@@ -3,14 +3,15 @@
 
     <Style x:Key="PurpleButtonStyle" TargetType="Button">
         <Setter Property="Background" Value="#7658B2"/>
-        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="BorderThickness" Value="5"/>
+        <Setter Property="BorderBrush" Value="#604184"/>
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Border CornerRadius="15"
-                            BorderThickness="5"
-                            BorderBrush="#604184"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
                             Background="{TemplateBinding Background}">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Border>

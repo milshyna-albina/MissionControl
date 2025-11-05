@@ -9,7 +9,7 @@
             <RowDefinition Height="60"/>
             <RowDefinition Height="255"/>
             <RowDefinition Height="60"/>
-            <RowDefinition Height="170"/>
+            <RowDefinition Height="180"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -85,6 +85,8 @@
                         Style="{StaticResource PurpleButtonStyle}" Margin="0,50,0,0" Click="ContinueButton_Click" >
                 <TextBlock Text="Modify route" VerticalAlignment="Center" FontSize="33" FontWeight="SemiBold" Foreground="White"/>
             </Button>
+            <TextBlock Grid.Column="1" x:Name="ModifyStatusTextBlock" Text="" Foreground="Red" Visibility="Collapsed"
+                Margin="0,155,0,0" HorizontalAlignment="Center" FontSize="18" />
             <Button Grid.Column="2" x:Name="ClearRouteButton" HorizontalAlignment="Left" Width="350" Height="70" Style="{StaticResource PurpleButtonStyle}" Margin="0,50,0,0" Cursor="Hand" Click="ClearButton_Click">
                 <TextBlock Text="Clear route" VerticalAlignment="Center" FontSize="33" FontWeight="SemiBold" Foreground="White"/>
             </Button>
@@ -111,6 +113,11 @@
                     <Image Source="/images/exit.png" Width="40" Height="40"/>
                 </StackPanel>
             </Button>
+        </Grid>
+
+        <Grid x:Name="ClearedRoutePanel" Grid.Row="1" Grid.RowSpan="4" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="The route has been cleared." FontSize="45" Foreground="#7243A9" FontWeight="SemiBold"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"/> 
         </Grid>
 
         <Grid x:Name="NoRoutePanel" Grid.Row="1" Grid.RowSpan="5" Visibility="Collapsed" HorizontalAlignment="Center" 

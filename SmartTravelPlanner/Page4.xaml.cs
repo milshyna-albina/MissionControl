@@ -38,7 +38,7 @@ namespace Travelling
             var route = traveler.GetRoute();
             var citiesList = new List<string>(route.Split(" -> ", StringSplitOptions.RemoveEmptyEntries));
             int totalDistance = map.GetPathDistance(citiesList);
-            bool hasRoute = totalDistance > 0 && !string.IsNullOrWhiteSpace(route);
+            bool hasRoute = citiesList.Count > 0 && !string.IsNullOrWhiteSpace(route);
 
             NoRoutePanel.Visibility = hasRoute ? Visibility.Collapsed : Visibility.Visible;
             RouteBorder.Visibility = hasRoute ? Visibility.Visible : Visibility.Collapsed;
@@ -83,14 +83,36 @@ namespace Travelling
                 return;
             }
 
+            if (traveler.route.Count == 0)
+            {
+                traveler.SetLocation("");
+            }
+
             if (traveler.route.Any(c => string.Equals(c, city, StringComparison.OrdinalIgnoreCase)))
             {
                 CityTextBox.ShowTBError("City is already in the route!");
                 return;
             }
 
-            string lastCity = traveler.route.Last();
-            var path = map.FindShortestPath(lastCity, city);
+            string startCity;
+            if (traveler.route.Count == 0 || string.IsNullOrEmpty(traveler.currentLocation))
+            {
+                ClearedRoutePanel.Visibility = Visibility.Collapsed;
+                traveler.AddCity(city);
+                traveler.SetLocation(city);
+                traveler.currentLocation = city;
+                DisplayRoute();
+                CityTextBox.Text = "";
+                CityTextBox.HideTBError();
+                return;
+            }
+            else
+            {
+                startCity = traveler.route.Last();
+            }
+
+
+            var path = map.FindShortestPath(startCity, city);
 
             if (path == null)
             {
@@ -98,7 +120,16 @@ namespace Travelling
                 return;
             }
 
-            var newCities = path.Skip(1).Where(c => !traveler.route.Contains(c, StringComparer.OrdinalIgnoreCase)).ToList();
+            List<string> newCities;
+            if (traveler.route.Count == 0)
+            {
+                newCities = path.ToList();
+            }
+            else
+            {
+                newCities = path.Skip(1).Where(c => !traveler.route.Contains(c, StringComparer.OrdinalIgnoreCase)).ToList();
+            }
+
             foreach (var c in newCities)
             {
                 traveler.AddCity(c);
@@ -136,6 +167,17 @@ namespace Travelling
                 string.Equals(cityToRemove, lastCity, StringComparison.OrdinalIgnoreCase))
             {
                 traveler.route = traveler.route.Where(c => !string.Equals(c, cityToRemove, StringComparison.OrdinalIgnoreCase)).ToList();
+                if (traveler.GetLocation().Equals(cityToRemove, StringComparison.OrdinalIgnoreCase))
+                {
+                    if (traveler.route.Count > 0)
+                    {
+                        traveler.SetLocation(traveler.route.First());
+                    }
+                    else
+                    {
+                        traveler.SetLocation("");
+                    }
+                }
                 DisplayRoute();
                 CityTextBox.Text = "";
                 CityTextBox.HideTBError();
@@ -149,8 +191,19 @@ namespace Travelling
                 CityTextBox.ShowTBError("Cannot remove city: route would be broken!");
                 return;
             }
+            if (traveler.GetLocation().Equals(cityToRemove, StringComparison.OrdinalIgnoreCase))
+            {
+                if (traveler.route.Count > 0)
+                {
+                    traveler.SetLocation(traveler.route.First());
+                }
+                else
+                {
+                    traveler.SetLocation("");
+                }
+            }
 
-            traveler.route = new List<string>(newPath);
+                traveler.route = new List<string>(newPath);
             DisplayRoute();
             CityTextBox.Text = "";
             CityTextBox.HideTBError();
@@ -192,13 +245,14 @@ namespace Travelling
                 return;
             }
 
-            traveler.ClearRoute(); 
-            RouteTextBlock.Text = ""; 
-            RouteListBox.Items.Clear(); 
-           
-            ClearStatusTextBlock.Text = "Route cleared!";
-            ClearStatusTextBlock.Foreground = Brushes.Green;
-            ClearStatusTextBlock.Visibility = Visibility.Visible;
+            traveler.ClearRoute();
+            RouteTextBlock.Text = "";
+            RouteListBox.Items.Clear();
+            RouteListBox.Visibility = Visibility.Collapsed;
+            AllCitiesTextBlock.Visibility = Visibility.Collapsed;
+            TotalDistanceTextBlock.Visibility = Visibility.Collapsed;
+            RouteBorder.Visibility = Visibility.Collapsed;
+            ClearedRoutePanel.Visibility = Visibility.Visible;
         }
 
 

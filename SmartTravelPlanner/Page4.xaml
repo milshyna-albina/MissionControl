@@ -135,6 +135,11 @@
             </Button>
         </Grid>
 
+        <Grid x:Name="ClearedRoutePanel" Grid.Row="1" Grid.RowSpan="4" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="The route has been cleared." FontSize="45" Foreground="#7243A9" FontWeight="SemiBold"
+           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
+
         <Grid x:Name="NoRoutePanel" Grid.Row="1" Grid.RowSpan="6" Visibility="Collapsed" HorizontalAlignment="Center" 
       VerticalAlignment="Center">
             <Grid.RowDefinitions>

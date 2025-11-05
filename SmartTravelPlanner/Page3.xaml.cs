@@ -102,14 +102,28 @@ namespace Travelling
             traveler.ClearRoute();
             RouteTextBlock.Text = "";
             RouteListBox.Items.Clear();
-
-            ClearStatusTextBlock.Text = "Route cleared!";
-            ClearStatusTextBlock.Foreground = Brushes.Green;
-            ClearStatusTextBlock.Visibility = Visibility.Visible;
+            RouteListBox.Visibility = Visibility.Collapsed;
+            AllCitiesTextBlock.Visibility = Visibility.Collapsed;
+            TotalDistanceTextBlock.Visibility = Visibility.Collapsed;
+            RouteBorder.Visibility = Visibility.Collapsed;
+            ClearedRoutePanel.Visibility = Visibility.Visible;
         }
 
         private void ContinueButton_Click(object sender, RoutedEventArgs e)
         {
+            string route = traveler.GetRoute();
+            bool hasRoute = !string.IsNullOrWhiteSpace(route);
+
+            if (!hasRoute)
+            {
+                ModifyButton.BorderBrush = Brushes.Red;
+                ModifyStatusTextBlock.Text = "Cannot modify: route is empty!";
+                ModifyStatusTextBlock.Foreground = Brushes.Red;
+                ModifyStatusTextBlock.Visibility = Visibility.Visible;
+                return;
+            }
+            ModifyButton.BorderBrush = Brushes.Black;
+            ModifyStatusTextBlock.Visibility = Visibility.Collapsed;
             Traveler experimentalTraveler = (Traveler)traveler.Clone();
             Page4 page4 = new Page4(experimentalTraveler, map);
             this.NavigationService.Navigate(page4);
