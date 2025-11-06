@@ -133,8 +133,8 @@ If you see “Invalid file format” check that:
   "route": ["Lviv", "Warsaw"]
 }
 ```
-### 🧭 Destination Not Reachable
-If the app says “Destination not reachable”, it means there’s no valid path between the traveler’s location and the target city in your map. Try adding missing connections in `map.txt`.
+### 🧭 No Route
+If the app says “No Route”, it means there’s no valid path between the traveler’s location and the destination city in your map. Try adding missing connections in `map.txt`.
 
 ---
 
