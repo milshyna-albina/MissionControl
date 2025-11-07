@@ -6,8 +6,9 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="130"/>
+            <RowDefinition Height="120"/>
             <RowDefinition Height="340"/>
+            <RowDefinition Height="20"/>
             <RowDefinition Height="100"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="170"/>
@@ -18,23 +19,23 @@
            Foreground="#7243A9" FontWeight="Bold"/>
 
         <Image Grid.Row="1" Source="/images/page2.png" HorizontalAlignment="Center" Margin="0,0,0,0" Stretch="Uniform"/>
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" x:Name="LoadDataButton" VerticalAlignment="Center" Width="300" Height="80" Style="{StaticResource WhiteButtonStyle}" 
-                Tag="/images/load_map.png"  Click="LoadDataButton_Click" Margin="0,0,40,0" >
+            <Button Grid.Column="0" HorizontalAlignment="Right" x:Name="LoadDataButton" VerticalAlignment="Center" Width="300" Height="80" Style="{StaticResource WhiteButtonStyle}" 
+                Tag="/images/folder.png"  Click="LoadDataButton_Click" Margin="0,0,40,0" >
                 <TextBlock Text="Load Data" FontSize="35" FontWeight="Bold" Foreground="#604184"/>
             </Button>
 
-            <Button Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" x:Name="LoadMapButton" VerticalAlignment="Center" Width="300" Height="80" Style="{StaticResource WhiteButtonStyle}" 
-        Tag="/images/load_map.png"  Click="LoadMapButton_Click" Margin="40,0,0,0" >
+            <Button Grid.Column="1" HorizontalAlignment="Left" x:Name="LoadMapButton" VerticalAlignment="Center" Width="300" Height="80" Style="{StaticResource WhiteButtonStyle}" 
+        Tag="/images/load_map.png"  Click="LoadMapButton_Click" Margin="40,10,0,0" >
                 <TextBlock Text="Load Map" FontSize="35" FontWeight="Bold" Foreground="#604184"/>
             </Button>
         </Grid>
 
-        <Grid Grid.Row="3">
+        <Grid Grid.Row="4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="380"/>
@@ -47,14 +48,14 @@
                  Margin="0,0,0,10" FontSize="25" Visibility="Collapsed"/>
         </Grid>
 
-        <Button Grid.Row="4" Width="400" Height="100" HorizontalAlignment="Center" x:Name="PlanRouteButton"
+        <Button Grid.Row="5" Width="400" Height="100" HorizontalAlignment="Center" x:Name="PlanRouteButton"
     Style="{StaticResource PurpleButtonStyle}"  Click="ContinueButton_Click">
             <TextBlock Text="Plan Route" VerticalAlignment="Top" FontSize="50" FontWeight="Bold" Foreground="White"/>
         </Button>
         <TextBlock x:Name="PlanRouteStatusText" Grid.Row="4" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Center" 
 FontSize="25" Visibility="Collapsed" Margin="0,0,0,0" Cursor=""/>
 
-        <Grid Grid.Row="5">
+        <Grid Grid.Row="6">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
