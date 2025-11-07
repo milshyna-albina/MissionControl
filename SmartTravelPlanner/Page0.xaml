@@ -32,9 +32,9 @@
             </Grid.ColumnDefinitions>
 
             <Button Grid.Column="0" Height="80" Click="ManualEntryButton_Click" Style="{StaticResource WhiteButtonStyle}" 
-                Tag="/images/load_map.png" Content="Enter data manually" FontSize="30" FontWeight="Bold" VerticalAlignment="Center" Width="500"/>
+                Tag="/images/pen.png" Content="Enter data manually" FontSize="30" FontWeight="Bold" VerticalAlignment="Center" Width="500"/>
             <Button Grid.Column="2" Height="80" Click="LoadFromFileButton_Click" Style="{StaticResource WhiteButtonStyle}" 
-                Tag="/images/load_map.png" Content="Load data from .json file" FontSize="30" FontWeight="Bold" VerticalAlignment="Center" Width="500"/>
+                Tag="/images/folder.png" Content="Load data from .json file" FontSize="30" FontWeight="Bold" VerticalAlignment="Center" Width="500"/>
         </Grid>
 
         <Image Grid.Row="4" Source="/images/page0.png" HorizontalAlignment="Center" Margin="0,20,0,0" Stretch="Uniform"/>

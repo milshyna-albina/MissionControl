@@ -11,15 +11,23 @@
   <ItemGroup>
     <None Remove="images\delete.PNG" />
     <None Remove="images\exit.png" />
+    <None Remove="images\folder.PNG" />
     <None Remove="images\load_map.png" />
+    <None Remove="images\load_map1.png" />
+    <None Remove="images\load_map2.png" />
     <None Remove="images\page0.png" />
+    <None Remove="images\pen.PNG" />
+    <None Remove="images\pen2.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="images\background.png" />
     <Resource Include="images\delete.PNG" />
     <Resource Include="images\exit.png" />
+    <Resource Include="images\folder.png" />
     <Resource Include="images\load_map.png" />
+    <Resource Include="images\page2.png" />
+    <Resource Include="images\pen.png" />
     <Resource Include="images\remove_city.png" />
     <Resource Include="images\page0.png" />
     <Resource Include="images\no_route.png">
