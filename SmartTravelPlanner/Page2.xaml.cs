@@ -76,7 +76,7 @@ namespace Travelling
                     break;
 
                 case Button btn when btn == LoadMapButton:
-                    TravelerStatusText.Visibility = Visibility.Collapsed;
+                    MapStatusText.Visibility = Visibility.Collapsed;
                     btn.BorderBrush = defaultBorder;
                     break;
 
@@ -200,13 +200,12 @@ namespace Travelling
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show(
-                "Do you want to leave the program?",
-                "EXIT",
-                MessageBoxButton.YesNo,
-                MessageBoxImage.Question);
 
-            if (result == MessageBoxResult.Yes)
+            ExitWindow exitWindow = new ExitWindow();
+
+            exitWindow.ShowDialog();
+
+            if (exitWindow.IsConfirmed)
             {
                 Application.Current.Shutdown();
             }

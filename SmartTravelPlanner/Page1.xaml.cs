@@ -142,13 +142,12 @@ namespace Travelling
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show(
-                ".",
-                ".",
-                MessageBoxButton.YesNo,
-                MessageBoxImage.Question);
 
-            if (result == MessageBoxResult.Yes)
+            ExitWindow exitWindow = new ExitWindow();
+
+            exitWindow.ShowDialog();
+
+            if (exitWindow.IsConfirmed)
             {
                 Application.Current.Shutdown();
             }

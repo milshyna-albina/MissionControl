@@ -260,14 +260,10 @@ namespace Travelling
         {
             if (NavigationService != null)
             {
-                MessageBoxResult result = MessageBox.Show(
-                    "All changes made on the experimental route will be lost.\n" +
-                    "Are you sure you want to return to the original route?",
-                    "Warning",
-                    MessageBoxButton.YesNo,
-                    MessageBoxImage.Warning);
+                WarningWindow warningWindow = new WarningWindow();
+                warningWindow.ShowDialog();
 
-                if (result == MessageBoxResult.Yes)
+                if (warningWindow.IsConfirmed)
                 {
                     NavigationService.Navigate(new Page3(originalTraveler, map));
                 }
@@ -275,13 +271,12 @@ namespace Travelling
         }
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show(
-                "ARE U LEAVING US???",
-                "how dare u...",
-                MessageBoxButton.YesNo,
-                MessageBoxImage.Question);
 
-            if (result == MessageBoxResult.Yes)
+            ExitWindow exitWindow = new ExitWindow();
+
+            exitWindow.ShowDialog();
+
+            if (exitWindow.IsConfirmed)
             {
                 Application.Current.Shutdown();
             }

@@ -1,0 +1,45 @@
+﻿<Window x:Class="Travelling.WarningWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Warning" Height="200" Width="400"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        WindowStyle="ToolWindow">
+
+    <Grid Background="#E6E2F3">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <TextBlock Text="All changes made on the experimental route will be lost. Are you sure you want to return to the original route?"
+                   Grid.Row="0"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   TextAlignment="Center"
+                   FontSize="17"
+                   Foreground="#7658B2"
+                   FontWeight="Bold"
+                   TextWrapping="Wrap"
+                   Margin="0,9,0,0" Width="322"/>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button  Grid.Column="0" Width="100" Height="30" HorizontalAlignment="Right" x:Name="YesButton" Margin="0,0,30,0"
+Style="{StaticResource ExitButtonsStyle}"  Click="YesButton_Click">
+                <TextBlock Text="Yes" VerticalAlignment="Top" FontSize="15" FontWeight="Bold" Foreground="White"/>
+            </Button>
+            <Button  Grid.Column="1" Width="100" Height="30" HorizontalAlignment="Left" x:Name="NoButton" Margin="30,0,0,0"
+Style="{StaticResource ExitButtonsStyle}"  Click="NoButton_Click">
+                <TextBlock Text="No" VerticalAlignment="Top" FontSize="15" FontWeight="Bold" Foreground="White"/>
+            </Button>
+
+        </Grid>
+
+    </Grid>
+</Window>
