@@ -22,7 +22,7 @@
         <UserTextBox:InputTextBox x:Name="LocationTextBox" Grid.Row="3" HorizontalAlignment="Center" Header="location" Placeholder="Enter location (where from)"/>
         <UserTextBox:InputTextBox x:Name="DestinationTextBox" Grid.Row="4" HorizontalAlignment="Center" Header="destination" Placeholder="Enter destination (where to)"/>
 
-        <Button Grid.Row="5" x:Name="LoadMapButton" Width="300" Height="80" Style="{StaticResource WhiteButtonStyle}" Tag="/images/load_map.png" Click="LoadMapButton_Click">
+        <Button Grid.Row="5" x:Name="LoadMapButton" Width="300" Height="80" Style="{StaticResource WhiteButtonStyle}" VerticalAlignment="Bottom" Tag="/images/load_map.png" Click="LoadMapButton_Click">
             <TextBlock Text="Load Map" FontSize="35" FontWeight="Bold" Foreground="#604184"/>
         </Button>
 

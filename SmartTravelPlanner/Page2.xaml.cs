@@ -102,6 +102,7 @@ namespace Travelling
                     traveler = Traveler.LoadFromFile(path);
 
                     HideError(LoadDataButton);
+                    HideError(PlanRouteButton);
 
                     TravelerStatusText.Text = $"Traveler {traveler.GetName()} loaded!";
                     TravelerStatusText.Foreground = Brushes.Purple;
@@ -134,6 +135,7 @@ namespace Travelling
                     map = CityGraph.LoadFromFile(path);
                     MapStatusText.Text = "Map successfully loaded!";
                     HideError(LoadMapButton);
+                    HideError(PlanRouteButton);
 
                     MapStatusText.Foreground = Brushes.Purple;
                     MapStatusText.Visibility = Visibility.Visible;
@@ -158,13 +160,13 @@ namespace Travelling
 
             if (traveler == null)
             {
-                ShowError(LoadDataButton, "Traveler data not loaded!");
+                ShowError(LoadDataButton, "Traveler data not found!");
                 hasError = true;
             }
 
             if (map == null)
             {
-                ShowError(LoadMapButton, "Map not loaded or invalid!");
+                ShowError(LoadMapButton, "Map file not found!");
                 hasError = true;
             }
 

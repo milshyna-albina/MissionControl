@@ -77,7 +77,7 @@ namespace Travelling
                 {
                     traveler.SaveToFile(path);
                     SaveStatusTextBlock.Text = "Route successfully saved!";
-                    SaveStatusTextBlock.Foreground = Brushes.Green;
+                    SaveStatusTextBlock.Foreground = Brushes.Purple;
                     SaveStatusTextBlock.Visibility = Visibility.Visible;
                 }
                 catch (Exception)
