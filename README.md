@@ -46,6 +46,24 @@ All common errors are caught and explained clearly — no crashes, no confusion.
 
 ---
 
+## 📊 UML Diagrams
+
+To help visualize the Traveler’s Adventure application we’ve created 3 UML diagrams. These diagrams are useful for understanding how the app behaves under different scenarios.
+
+### Use Case Diagram
+The use case diagram represents how the *user* interacts with the system.
+//usecase.png
+
+### Activity Diagram
+The activity diagram shows the main *workflow* of the application.
+//activity.png
+
+### Sequence Diagram
+The sequence diagram demonstrates the order of interactions between the *user* and the *system*.
+//sequence.png
+
+---
+
 ## 🚀 How to Use the App
 
 ### Step 1 – Clone the repository
