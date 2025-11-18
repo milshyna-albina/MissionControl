@@ -198,8 +198,22 @@ namespace Travelling
         {
             if (map != null || traveler is not null)
             {
+                Window mainWindow = Window.GetWindow(this);
+
+                if (mainWindow != null)
+                {
+                    mainWindow.IsEnabled = false;
+                    mainWindow.Opacity = 0.5;
+                }
+
                 ReturnWarningWindow warningWindow = new ReturnWarningWindow();
                 warningWindow.ShowDialog();
+
+                if (mainWindow != null)
+                {
+                    mainWindow.Opacity = 1;
+                    mainWindow.IsEnabled = true;
+                }
 
                 if (warningWindow.IsConfirmed)
                 {
@@ -216,9 +230,22 @@ namespace Travelling
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
 
-            ExitWindow exitWindow = new ExitWindow();
+            Window mainWindow = Window.GetWindow(this);
 
+            if (mainWindow != null)
+            {
+                mainWindow.IsEnabled = false;
+                mainWindow.Opacity = 0.5;
+            }
+
+            ExitWindow exitWindow = new ExitWindow();
             exitWindow.ShowDialog();
+
+            if (mainWindow != null)
+            {
+                mainWindow.Opacity = 1;
+                mainWindow.IsEnabled = true;
+            }
 
             if (exitWindow.IsConfirmed)
             {

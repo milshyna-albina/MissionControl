@@ -47,7 +47,7 @@
                 </StackPanel>
             </Button>
             <Button Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20"
-            Style="{StaticResource SmallPurpleButtonStyle}" Click="ExitButton_Click">
+            Style="{StaticResource SmallPurpleButtonStyle}" IsCancel="True" Click="ExitButton_Click">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                     <TextBlock Text="Exit " FontSize="30" Foreground="White"/>
                     <Image Source="/images/exit.png" Width="40" Height="40"/>
