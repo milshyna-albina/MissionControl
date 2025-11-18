@@ -1,4 +1,4 @@
-﻿<Window x:Class="Travelling.WarningWindow"
+﻿<Window x:Class="Travelling.ReturnWarningWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="WARNING" Height="200" Width="400"
@@ -13,7 +13,7 @@
         </Grid.RowDefinitions>
 
 
-        <TextBlock Text="All changes made on the experimental route will be lost. Are you sure you want to return to the original route?"
+        <TextBlock Text="Loaded data will be lost. Do you still want to return?"
                    Grid.Row="0"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
@@ -31,11 +31,11 @@
             </Grid.ColumnDefinitions>
 
             <Button  Grid.Column="0" Width="100" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top" x:Name="YesButton" Margin="0,0,30,0"
-                Style="{StaticResource ExitButtonsStyle}"  Click="YesButton_Click">
+Style="{StaticResource ExitButtonsStyle}"  Click="YesButton_Click">
                 <TextBlock Text="Yes" VerticalAlignment="Top" FontSize="15" FontWeight="Bold" Foreground="White"/>
             </Button>
             <Button  Grid.Column="1" Width="100" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="NoButton" Margin="30,0,0,0"
-                Style="{StaticResource ExitButtonsStyle}"  Click="NoButton_Click" Cursor="Hand">
+Style="{StaticResource ExitButtonsStyle}"  Click="NoButton_Click">
                 <TextBlock Text="No" VerticalAlignment="Top" FontSize="15" FontWeight="Bold" Foreground="White"/>
             </Button>
 
@@ -43,3 +43,4 @@
 
     </Grid>
 </Window>
+

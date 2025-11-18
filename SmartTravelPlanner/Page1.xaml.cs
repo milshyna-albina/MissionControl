@@ -136,8 +136,25 @@ namespace Travelling
 
         private void ReturnButton_Click(object sender, RoutedEventArgs e)
         {
-            if (NavigationService != null && NavigationService.CanGoBack)
-                NavigationService.GoBack();
+            bool hasName = !string.IsNullOrWhiteSpace(NameTextBox.Text);
+            bool hasLocation = !string.IsNullOrWhiteSpace(LocationTextBox.Text);
+            bool hasDestination = !string.IsNullOrWhiteSpace(DestinationTextBox.Text);
+
+            if (hasName || hasLocation || hasDestination || map != null)
+            {
+                ReturnWarningWindow warningWindow = new ReturnWarningWindow();
+                warningWindow.ShowDialog();
+
+                if (warningWindow.IsConfirmed)
+                {
+                    NavigationService.Navigate(new Page0());
+                }
+            }
+            else
+            {
+                if (NavigationService != null && NavigationService.CanGoBack)
+                    NavigationService.GoBack();
+            }
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)

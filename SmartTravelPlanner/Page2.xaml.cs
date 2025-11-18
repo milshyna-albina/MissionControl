@@ -160,7 +160,7 @@ namespace Travelling
 
             if (traveler == null)
             {
-                ShowError(LoadDataButton, "Traveler data not found!");
+                ShowError(LoadDataButton, "Empty traveler!");
                 hasError = true;
             }
 
@@ -196,8 +196,21 @@ namespace Travelling
 
         private void ReturnButton_Click(object sender, RoutedEventArgs e)
         {
-            if (NavigationService != null && NavigationService.CanGoBack)
-                NavigationService.GoBack();
+            if (map != null || traveler is not null)
+            {
+                ReturnWarningWindow warningWindow = new ReturnWarningWindow();
+                warningWindow.ShowDialog();
+
+                if (warningWindow.IsConfirmed)
+                {
+                    NavigationService.Navigate(new Page0());
+                }
+            }
+            else
+            {
+                if (NavigationService != null && NavigationService.CanGoBack)
+                    NavigationService.GoBack();
+            }
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
