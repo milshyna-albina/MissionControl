@@ -52,15 +52,15 @@ To help visualize the Traveler’s Adventure application we’ve created 3 UML d
 
 ### Use Case Diagram
 The use case diagram represents how the *user* interacts with the system.
-//usecase.png
+[Use case diagram](diagrams/usecase.png)
 
 ### Activity Diagram
 The activity diagram shows the main *workflow* of the application.
-//activity.png
+[Activity diagram](diagrams/activity.png)
 
 ### Sequence Diagram
 The sequence diagram demonstrates the order of interactions between the *user* and the *system*.
-//sequence.png
+[Sequence diagram](diagrams/sequence.png)
 
 ---
 
