@@ -112,6 +112,11 @@ namespace Travelling
                 {
                     ShowError(LoadDataButton, "Data file not found!");
                 }
+                catch (FileLoadException ex)
+                {
+                    traveler = null;
+                    ShowError(LoadDataButton, ex.Message);
+                }
                 catch (Exception )
                 {
                     traveler = null;

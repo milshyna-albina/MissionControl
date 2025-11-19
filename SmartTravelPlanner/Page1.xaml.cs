@@ -76,7 +76,7 @@ namespace Travelling
                 {
                     map = CityGraph.LoadFromFile(path);
                     MapStatusText.Text = "Map successfully loaded!";
-                    MapStatusText.Foreground = Brushes.Black;
+                    MapStatusText.Foreground = Brushes.Purple;
                     MapStatusText.Visibility = Visibility.Visible;
                     LoadMapButton.BorderBrush = defaultBorder;
                 }

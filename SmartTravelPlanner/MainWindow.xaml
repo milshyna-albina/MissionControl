@@ -3,6 +3,7 @@
                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                   xmlns:local="clr-namespace:Travelling"
                   ShowsNavigationUI="False"
+                  ResizeMode="CanMinimize"
                   Title="Traveler's Adventure"
                   Height="900" Width="1600">
     <NavigationWindow.Background>

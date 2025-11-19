@@ -33,6 +33,12 @@ namespace Travelling
             }
             return result;
         }
+        private class TravelerJson
+        {
+            public string name { get; set; }
+            public string currentLocation { get; set; }
+            public List<string> route { get; set; }
+        }
 
         public Traveler(string name)
         {
@@ -168,34 +174,56 @@ namespace Travelling
                                 "}";
             File.WriteAllText(filePath, jsonString);
         }
+
         public static Traveler LoadFromFile(string path)
         {
             if (!File.Exists(path))
+            {
                 throw new FileNotFoundException("File doesn’t exist");
+            }
 
             string jsonString = File.ReadAllText(path);
 
             try
             {
-                using JsonDocument doc = JsonDocument.Parse(jsonString);
-                JsonElement root = doc.RootElement;
-
-                string name = root.GetProperty("name").GetString() ?? "";
-                string currentLocation = root.GetProperty("currentLocation").GetString() ?? "";
-                Traveler traveler = new Traveler(name);
-                traveler.SetLocation(currentLocation);
-
-                if (root.TryGetProperty("route", out JsonElement routeElement) && routeElement.ValueKind == JsonValueKind.Array)
+                var options = new JsonSerializerOptions
                 {
-                    foreach (JsonElement city in routeElement.EnumerateArray())
+                    PropertyNameCaseInsensitive = true
+                };
+
+                TravelerJson? travelerJson =
+                    JsonSerializer.Deserialize<TravelerJson>(jsonString, options)
+                    ?? throw new JsonException();
+
+                if (string.IsNullOrWhiteSpace(travelerJson.name))
+                {
+                    throw new JsonException();
+                }
+
+                if (string.IsNullOrWhiteSpace(travelerJson.currentLocation))
+                {
+                    throw new JsonException();
+                }
+
+                if (travelerJson.route == null || travelerJson.route.Count == 0)
+                {
+                    throw new JsonException();
+                }
+
+                Traveler traveler = new Traveler(travelerJson.name);
+                traveler.SetLocation(travelerJson.currentLocation);
+
+                if (travelerJson.route != null)
+                {
+                    foreach (string city in travelerJson.route)
                     {
-                        traveler.AddCity(city.GetString() ?? "");
+                        traveler.AddCity(city);
                     }
                 }
 
                 return traveler;
             }
-            catch (Exception)
+            catch (JsonException)
             {
                 throw new FileLoadException("Invalid travel data");
             }
