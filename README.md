@@ -12,12 +12,19 @@ Traveler’s Adventure is organized into 3 main pages — each reflecting a key 
 
 ### Menu
 Start your adventure by creating or loading a traveler profile. Once you’ve chosen suitable option, you’ll move to the setup stage where you can enter traveler’s data and load map file.
+<img width="1584" height="857" alt="image" src="https://github.com/user-attachments/assets/adc04952-4db2-46e3-a903-0b5d65cd3abb" />
+
+
 
 ### Route Planning
 Once both traveler and map are set, press Plan Route to calculate the shortest path between your traveler’s current location and destination. The application uses Dijkstra’s algorithm to ensure you always get the most efficient route possible.
+<img width="1581" height="855" alt="image" src="https://github.com/user-attachments/assets/accab730-c24f-4947-8e12-34b3a64cacca" />
+
 
 ### Experimental Mode
 This mode lets you manually modify your route — add or remove cities, explore “what if” scenarios and rebuild paths dynamically without changing the main route. When you’re done, simply return to the main route view or save your progress for later.
+<img width="1583" height="860" alt="image" src="https://github.com/user-attachments/assets/cab1c0ba-2176-405b-8ace-67ed460695e8" />
+
 
 ---
 
@@ -60,7 +67,6 @@ The activity diagram shows the main *workflow* of the application.
 
 ### Sequence Diagram
 The sequence diagram demonstrates the order of interactions between the *user* and the *system*.
-[Sequence diagram](diagrams/sequence.png)
 
 ---
 
@@ -72,7 +78,11 @@ Clone the Git repository and open the project in Visual Studio. Then hit `Run �
 ### Step 2 — Create or Load a Traveler
 You can either:
 - **Load Data Manually ✍️** (enter the traveler’s name, current location and destination)
+<img width="1583" height="858" alt="image" src="https://github.com/user-attachments/assets/e82ec19c-5541-4d8d-9b9e-088bdf7e8edc" />
+
 - **Load from JSON File 📂** (restore previously saved traveler information)
+<img width="1577" height="859" alt="image" src="https://github.com/user-attachments/assets/994fa405-5784-4b21-a298-b45a156a71a1" />
+
 
 Example of a valid `traveler.json` file:
 
