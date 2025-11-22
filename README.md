@@ -67,6 +67,7 @@ The activity diagram shows the main *workflow* of the application.
 
 ### Sequence Diagram
 The sequence diagram demonstrates the order of interactions between the *user* and the *system*.
+[Sequence diagram](diagrams/sequence.png)
 
 ---
 
