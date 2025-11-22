@@ -13,14 +13,12 @@ Traveler’s Adventure is organized into 3 main pages — each reflecting a key 
 ### Menu
 Start your adventure by creating or loading a traveler profile. Once you’ve chosen suitable option, you’ll move to the setup stage where you can enter traveler’s data and load map file.
 
-<img alt="menu" src="SmartTravelPlanner/images/menu.png" width="50%">
-
+<img alt="menu" src="SmartTravelPlanner/images/menu.png" width="60%">
 
 ### Route Planning
 Once both traveler and map are set, press Plan Route to calculate the shortest path between your traveler’s current location and destination. The application uses Dijkstra’s algorithm to ensure you always get the most efficient route possible.
 
-<img alt="planned_route" src="SmartTravelPlanner/images/planned_route.png" width="50%">
-
+<img alt="planned_route" src="SmartTravelPlanner/images/planned_route.png" width="60%">
 
 ### Experimental Mode
 This mode lets you manually modify your route — add or remove cities, explore “what if” scenarios and rebuild paths dynamically without changing the main route. When you’re done, simply return to the main route view or save your progress for later.
@@ -80,11 +78,10 @@ Clone the Git repository and open the project in Visual Studio. Then hit `Run �
 ### Step 2 — Create or Load a Traveler
 You can either:
 - **Load Data Manually ✍️** (enter the traveler’s name, current location and destination)
-<img alt="manual_input" src="SmartTravelPlanner/images/manual_input.png" width="50%">
+<img alt="manual_input" src="SmartTravelPlanner/images/manual_input.png" width="60%">
 
 - **Load from JSON File 📂** (restore previously saved traveler information)
-<img alt="file_input" src="SmartTravelPlanner/images/file_input.png" width="50%">
-
+<img alt="file_input" src="SmartTravelPlanner/images/file_input.png" width="60%">
 
 Example of a valid `traveler.json` file:
 
