@@ -18,6 +18,7 @@ Start your adventure by creating or loading a traveler profile. Once you’ve ch
 
 ### Route Planning
 Once both traveler and map are set, press Plan Route to calculate the shortest path between your traveler’s current location and destination. The application uses Dijkstra’s algorithm to ensure you always get the most efficient route possible.
+
 <img alt="planned_route" src="SmartTravelPlanner/images/planned_route.png" width="50%">
 
 
