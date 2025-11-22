@@ -23,7 +23,9 @@ Once both traveler and map are set, press Plan Route to calculate the shortest p
 ### Experimental Mode
 This mode lets you manually modify your route — add or remove cities, explore “what if” scenarios and rebuild paths dynamically without changing the main route. When you’re done, simply return to the main route view or save your progress for later.
 
+<img alt="experimental_route" src="SmartTravelPlanner/images/exproute.png" width="60%">
 
+<img alt="added_city" src="SmartTravelPlanner/images/addedcity.png" width="60%">
 
 ---
 
