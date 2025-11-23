@@ -21,6 +21,7 @@ namespace Travelling
     {
         private CityGraph? map = null;
         private readonly Brush defaultBorder;
+        private bool travelerCreatedSuccessfully = false;
         public Page1()
         {
             InitializeComponent();
@@ -35,10 +36,19 @@ namespace Travelling
                     box.ShowTBError(message);
                     break;
 
-                case Button btn when btn == LoadMapButton:
-                    MapStatusText.Text = message;
-                    MapStatusText.Foreground = Brushes.Red;
-                    MapStatusText.Visibility = Visibility.Visible;
+                case Button btn when btn == LoadMapButton || btn == CreateTravelerButton:
+                    if (btn == LoadMapButton)
+                    {
+                        MapStatusText.Text = message;
+                        MapStatusText.Foreground = Brushes.Red;
+                        MapStatusText.Visibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        TravelStatusText.Text = message;
+                        TravelStatusText.Foreground = Brushes.Red;
+                        TravelStatusText.Visibility = Visibility.Visible;
+                    }
                     btn.BorderBrush = Brushes.Red;
                     break;
 
@@ -55,11 +65,39 @@ namespace Travelling
                     box.HideTBError();
                     break;
 
-                case Button btn when btn == LoadMapButton:
-                    MapStatusText.Visibility = Visibility.Collapsed;
+                case Button btn when btn == LoadMapButton || btn == CreateTravelerButton:
+                    if (btn == LoadMapButton)
+                        MapStatusText.Visibility = Visibility.Collapsed;
+                    else
+                        TravelStatusText.Visibility = Visibility.Collapsed;
+
                     btn.BorderBrush = defaultBorder;
                     break;
             }
+        }
+
+        private void CreateTravelerButton_Click(object sender, RoutedEventArgs e)
+        {
+            string name = NameTextBox.Text;
+            string location = LocationTextBox.Text;
+
+            if (!NameTextBox.Validate())
+            {
+                ShowError(CreateTravelerButton, "Traveler name cannot be empty!");
+                return;
+            }
+
+            if (!LocationTextBox.Validate())
+            {
+                ShowError(CreateTravelerButton, "Traveler location cannot be empty!");
+                return;
+            }
+
+            HideError(CreateTravelerButton);
+            TravelStatusText.Text = $"Traveler {name} created!";
+            TravelStatusText.Foreground = Brushes.Purple;
+            TravelStatusText.Visibility = Visibility.Visible;
+            travelerCreatedSuccessfully = true;
         }
 
         private void LoadMapButton_Click(object sender, RoutedEventArgs e)
@@ -95,6 +133,13 @@ namespace Travelling
 
         private void ContinueButton_Click(object sender, RoutedEventArgs e)
         {
+
+            if (!travelerCreatedSuccessfully)
+            {
+                ShowError(CreateTravelerButton, "Create traveler first!");
+                return;
+            }
+
             bool validName = NameTextBox.Validate();
             bool validLocation = LocationTextBox.Validate();
             bool validDestination = DestinationTextBox.Validate();
@@ -107,12 +152,12 @@ namespace Travelling
 
             if (validLocation && !map.ContainsCity(LocationTextBox.Text))
             {
-                LocationTextBox.ShowTBError("Location not found on map!");
+                LocationTextBox.ShowTBError("Location not in map!");
                 validLocation = false;
             }
             if (validDestination && !map.ContainsCity(DestinationTextBox.Text))
             {
-                DestinationTextBox.ShowTBError("Destination not found on map!");
+                DestinationTextBox.ShowTBError("Destination not in map!");
                 validDestination = false;
             }
 

@@ -6,11 +6,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
             <RowDefinition Height="80"/>
-            <RowDefinition Height="120"/>
-            <RowDefinition Height="120"/>
-            <RowDefinition Height="120"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="90"/>
             <RowDefinition Height="120"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
@@ -18,23 +15,65 @@
         <TextBlock Grid.Row="1" Text="Enter traveler's data:" FontSize="40" VerticalAlignment="Top" HorizontalAlignment="Center"
                    Foreground="#7243A9" FontWeight="Bold"/>
 
-        <UserTextBox:InputTextBox x:Name="NameTextBox" Grid.Row="2" HorizontalAlignment="Center" Header="name" Placeholder="Enter traveler's name" />
-        <UserTextBox:InputTextBox x:Name="LocationTextBox" Grid.Row="3" HorizontalAlignment="Center" Header="location" Placeholder="Enter location (where from)"/>
-        <UserTextBox:InputTextBox x:Name="DestinationTextBox" Grid.Row="4" HorizontalAlignment="Center" Header="destination" Placeholder="Enter destination (where to)"/>
+        <Grid Grid.Row="2" ClipToBounds="False">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="120"/>
+                <RowDefinition Height="120"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="120"/>
+            </Grid.RowDefinitions>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.3*"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-        <Button Grid.Row="5" x:Name="LoadMapButton" Width="300" Height="80" Style="{StaticResource WhiteButtonStyle}" VerticalAlignment="Bottom" Tag="/images/load_map.png" Click="LoadMapButton_Click">
-            <TextBlock Text="Load Map" FontSize="35" FontWeight="Bold" Foreground="#604184"/>
-        </Button>
+            <UserTextBox:InputTextBox x:Name="NameTextBox" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" Header="name" Placeholder="Enter traveler's name" />
 
-        <TextBlock x:Name="MapStatusText" Grid.Row="6" VerticalAlignment="Top" HorizontalAlignment="Center" 
-                   FontSize="16" Visibility="Collapsed"/>
+            <Grid Grid.Row="0" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0,60,0,-60">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="25"/>
+                </Grid.RowDefinitions>
 
-        <Button Grid.Row="7" Width="400" Height="100" HorizontalAlignment="Center"
+                <Button Grid.Row="0" x:Name="CreateTravelerButton" Width="350" Height="80" Style="{StaticResource WhiteButtonStyle}"
+                    Tag="/images/pen.png" Click="CreateTravelerButton_Click">
+                    <TextBlock Text="Create Traveler" FontSize="35" FontWeight="Bold" Foreground="#604184"/>
+                </Button>
+
+                <TextBlock Grid.Row="1" x:Name="TravelStatusText" FontSize="16" Visibility="Collapsed" 
+                    VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Grid>
+            <UserTextBox:InputTextBox x:Name="LocationTextBox" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" Header="location" Placeholder="Enter location (where from)"/>
+
+            <UserTextBox:InputTextBox x:Name="DestinationTextBox" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" Header="destination" Placeholder="Enter destination (where to)"/>
+
+            <Grid Grid.Row="3" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="0,7,0,-7">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="25"/>
+                </Grid.RowDefinitions>
+
+                <Button Grid.Row="0" x:Name="LoadMapButton" Width="350" Height="80" Style="{StaticResource WhiteButtonStyle}"
+                        Tag="/images/load_map.png" Click="LoadMapButton_Click">
+                    <TextBlock Text="Load Map" FontSize="35" FontWeight="Bold" Foreground="#604184"/>
+                </Button>
+
+                <TextBlock Grid.Row="1" x:Name="MapStatusText" FontSize="16" Visibility="Collapsed" 
+                           VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Grid>
+            
+        </Grid>
+
+        
+
+        <Button Grid.Row="4" Width="400" Height="100" HorizontalAlignment="Center"
             Style="{StaticResource PurpleButtonStyle}" Click="ContinueButton_Click">
             <TextBlock Text="Plan Route" VerticalAlignment="Center" FontSize="50" FontWeight="Bold" Foreground="White"/>
         </Button>
 
-        <Grid Grid.Row="8">
+        <Grid Grid.Row="5">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>

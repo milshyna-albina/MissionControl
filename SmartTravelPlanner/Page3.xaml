@@ -129,10 +129,12 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <TextBlock Grid.Row="0" Text="No route found!" FontSize="60" Foreground="#7243A9" HorizontalAlignment="Center" />
-            <Image Grid.Row="1" Source="/images/no_route.png" Width="500" Height="500" HorizontalAlignment="Center"/>
+            <TextBlock Grid.Row="1" Text="(Destination not reachable)" FontSize="30" Foreground="#7243A9" HorizontalAlignment="Center" />
+            <Image Grid.Row="2" Source="/images/no_route.png" Width="500" Height="500" HorizontalAlignment="Center"/>
         </Grid>
 
     </Grid>
