@@ -80,7 +80,7 @@ Clone the Git repository and open the project in Visual Studio. Then hit `Run �
 ### Step 2 — Create or Load a Traveler
 You can either:
 - **Load Data Manually ✍️** (enter the traveler’s name, current location and destination)
-<img alt="manual_input" src="SmartTravelPlanner/images/manual_input.png" width="60%">
+<img alt="create_traveler" src="SmartTravelPlanner/images/create_traveler.png" width="60%">
 
 - **Load from JSON File 📂** (restore previously saved traveler information)
 <img alt="file_input" src="SmartTravelPlanner/images/file_input.png" width="60%">
